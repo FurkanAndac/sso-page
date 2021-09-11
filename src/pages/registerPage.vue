@@ -10,20 +10,23 @@
                    register-link. This way Login is fully centered using
                    justify-content: space-between.
                -->
-              <div style="width: 63.27px"></div>
-              <div style="color: teal;" class="test text-h4">LOGIN</div>
-              <a color="teal" class="register-link" href="url">Registreer</a>
+              <!-- <div style="width: 63.27px"></div> -->
+              <div style="color: teal;" class="register-header text-h4">Registreren</div>
+              <!-- <a color="teal" class="login-link" href="login">Login</a> -->
             </q-card-section>
 
             <q-separator color="teal" inset/>
 
             <q-card-section >
-              <q-input class="q-pa-sm" standout="bg-teal text-white" v-model="text" label="Email adres" />
-              <q-input class="q-pa-sm" standout="bg-teal text-white" v-model="text" label="Wachtwoord" />
+              <q-input class="q-pa-sm" label-slot color="teal" outlined type="email" v-model="email" label="Email adres" />
+              <q-input class="q-pa-sm" label-slot color="teal" outlined type="password" v-model="password" label="Wachtwoord" />
+              <q-input class="q-pa-sm" label-slot color="teal" outlined type="repeatPassword" v-model="password" label="Herhaal wachtwoord" />
               <div class="buttonDiv">
-                <q-btn color="teal" class="loginButton q-ma-sm">LOGIN</q-btn>
+                <q-btn style="width: 100%" color="teal" class="loginButton q-ma-sm">REGISTREER</q-btn>
               </div>
-              <a color="teal" class="forgot-password q-mt-sm" href="url">wachtwoord vergeten?</a>
+              <div class="register-check q-mt-sm">Bent u al geregistreerd?
+                 <a color="teal" class="forgot-password" href="login">Inloggen</a>
+              </div>
             </q-card-section>
           </q-card>
           </div>
@@ -34,9 +37,49 @@
 <script>
 export default {
   name: 'Register',
+  mounted () {
+    console.log("test")
+  }
 }
 </script>
 
 <style lang="sass" scoped>
+  .top-bar
+    display: flex
+    align-items: center
+    justify-content: center
 
+  // .register-header
+  //   display: flex
+  //   justify-content: center
+  //   align-items: center
+
+  .register-check
+    display: flex
+    justify-content: center
+
+  .login-link
+    // color: teal
+
+  .forgot-password
+    display: flex
+    align-items: center
+    justify-content: center
+
+  .buttonDiv
+    display: flex
+    align-items: center
+    justify-content: center
+
+  .container
+    height: 100vh
+    // width: 100vw
+    display: flex
+    align-items: center
+    justify-content: center
+
+  .loginForm
+    width: 80%
+    border-radius: 3px
+    padding: 8px
 </style>

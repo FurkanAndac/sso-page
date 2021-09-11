@@ -1,8 +1,9 @@
 <template>
     <q-layout view="hHh lpR fFf">
       <div class="bg-image">
+      <router-view>
+      </router-view>
       </div>
-      <login-page></login-page>
     </q-layout>
 </template>
 
@@ -16,6 +17,9 @@ export default defineComponent({
   data () {
     return { 
      }
+  },
+  created () {
+    // window.location.pathname = '/login'
   }
 })
 </script>
@@ -35,5 +39,5 @@ export default defineComponent({
     background-size: cover
     // -webkit-filter: blur(5px)
     // -moz-filter: blur(5px)
-    filter: blur(7px)
+    // filter: blur(7px)
 </style>
