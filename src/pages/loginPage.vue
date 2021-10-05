@@ -68,19 +68,25 @@ export default {
       console.log('google login & signup')
     },
     signInExistingUser (email, password) {
-      console.log("test1")
-      console.log(email, "--------", password)
       firebase.auth().signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
-          console.log("test")
-          // this.$q.notify({message: 'Sign In Success.'})
+          this.$q.notify({message: 'Sign In Success.'})
           this.$router.push('/auth')
-        })
-        .catch(error => { console.log(error)})
+            // }
+          })
+        .catch(error => { 
+          if (error.code == 'auth/wrong-password') {
+            this.$q.notify({type: 'negative', message: 'wachtwoord verkeerd'})
+          } 
+          if (error.code == 'auth/user-not-found') {
+            this.$q.notify({type: 'negative', message: 'gebruiker niet gevonden'})
+          }
+          console.log(error)
+          })
     },
     forgotPassword () {
       this.resetPwdDialog = true
-    }
+    },
   }
 }
 </script>
